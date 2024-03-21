@@ -133,4 +133,7 @@ def checkWin():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True)
+    app.run(port=8080, host="0.0.0.0")
+    
+#python3 -m http.server --bind 0.0.0.0 8081
