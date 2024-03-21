@@ -1,5 +1,5 @@
-
-var yourNick = null;
+//var hostAddress = 'http://localhost:5000';
+var hostAddress = 'http://localhost:8080';
 
 var parametr = window.location.search.substring(1);
 var yourNick = parametr.split('=')[1];
@@ -7,7 +7,8 @@ document.getElementById('yourNick').innerHTML = 'Your nick: ' + yourNick;
 
 function getOpponent() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:5000/get_players', true);
+    //xhr.open('GET', 'http://localhost:5000/get_players', true);
+    xhr.open('GET', hostAddress + '/get_players', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function() {
@@ -39,7 +40,7 @@ function getOpponent() {
 
 function makeMove(move) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:5000/send_move', true);
+    xhr.open('POST', hostAddress +'/send_move', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function() {
@@ -56,7 +57,7 @@ function makeMove(move) {
 
 function updateBoard() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:5000/get_board', true);
+    xhr.open('GET', hostAddress +'/get_board', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function() {
@@ -90,7 +91,7 @@ function renderBoard(board) {
 
 function checkWin() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:5000/get_winner', true);
+    xhr.open('GET', hostAddress +'/get_winner', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function() {
@@ -118,7 +119,7 @@ function checkWin() {
 
 function endGame(){
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:5000/end_game', true);
+    xhr.open('POST', hostAddress + '/end_game', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function() {
@@ -135,7 +136,7 @@ function endGame(){
 
 function checkEndGame(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:5000/get_end', true);
+    xhr.open('GET', hostAddress +'/get_end', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onreadystatechange = function() {
