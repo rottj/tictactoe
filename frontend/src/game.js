@@ -1,5 +1,4 @@
-//var hostAddress = 'http://localhost:5000';
-var hostAddress = 'http://localhost:8080';
+var hostAddress = 'http://ipAddress:8080';
 
 var parametr = window.location.search.substring(1);
 var yourNick = parametr.split('=')[1];
@@ -7,7 +6,6 @@ document.getElementById('yourNick').innerHTML = 'Your nick: ' + yourNick;
 
 function getOpponent() {
     var xhr = new XMLHttpRequest();
-    //xhr.open('GET', 'http://localhost:5000/get_players', true);
     xhr.open('GET', hostAddress + '/get_players', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
